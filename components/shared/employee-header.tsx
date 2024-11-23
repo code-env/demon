@@ -7,7 +7,7 @@ interface EmployeeHeaderProps {
 
 const EmployeeHeader = ({ isLoading }: EmployeeHeaderProps) => {
   return (
-    <div className="flex items-center justify-between gap-2 h-16 border-b border-border px-4 dark:border-gray-100/10">
+    <div className="flex items-center justify-center md:justify-between gap-2 h-16 border-b border-border px-4 dark:border-gray-100/10">
       <p className="text-base font-semibold hidden md:block">Employees</p>
       <CreateEmployee />
     </div>

@@ -26,7 +26,7 @@ const MailHeader = () => {
   const allCategories = [defaultCategory, ...categories];
 
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex gap-2 items-center flex-wrap">
       {allCategories.map((category) => (
         <div
           key={category.id}

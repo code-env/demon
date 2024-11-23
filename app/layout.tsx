@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={cn(poppins.className, "bg-muted")}>
+      <body className={cn(poppins.className, "bg-background")}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
