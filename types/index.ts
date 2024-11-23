@@ -1,4 +1,4 @@
-import { employeeSchema, mailSchema } from "@/schema";
+import { employeeSchema, mailSchema, categorySchema } from "@/schema";
 import { z } from "zod";
 
 export type MailResponse = {
@@ -19,3 +19,4 @@ export type MailResponse = {
 
 export type EmployeeSchema = z.infer<typeof employeeSchema>;
 export type MailSchema = z.infer<typeof mailSchema>;
+export type CategorySchema = z.infer<typeof categorySchema>;
