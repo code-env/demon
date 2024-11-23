@@ -5,7 +5,7 @@ import { routes } from "@/constants";
 import { Button } from "../ui/button";
 const Sidebar = () => {
   return (
-    <aside className="w-1/5 h-screen bg-muted text-primary flex flex-col gap-4 border-r">
+    <aside className="w-1/5 h-screen bg-muted text-primary flex-col gap-4 border-r hidden md:flex">
       <div className="p-4 border-b border-border dark:border-gray-100/10 h-16">
         <Logo />
       </div>
