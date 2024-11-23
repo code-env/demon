@@ -16,6 +16,7 @@ datasource db {
 model Category {
   id        String   @id @default(cuid())
   name      String
+  color     Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Mail      Mail[]
@@ -31,6 +32,7 @@ model Mail {
   categoryId String
   employee   Employee @relation(fields: [employeeId], references: [id], onDelete: Cascade)
   employeeId String
+  thread     Thread[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }
@@ -39,6 +41,14 @@ model Employee {
   id        String   @id @default(cuid())
   name      String
   email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Mail      Mail[]
+}
+
+model Thread {
+  id        String   @id @default(cuid())
+  content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   Mail      Mail[]

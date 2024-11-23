@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { parseColor } from "@/lib/utils";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Params {
@@ -22,15 +23,17 @@ export async function DELETE(req: NextRequest, { params }: Params) {
   }
 }
 
-export async function PATCH(req: NextRequest, { params }: Params) {
+export async function PUT(req: NextRequest, { params }: Params) {
   try {
     const { categoryId } = await params;
     const body = await req.json();
-    const { name } = body;
-    const category = await db.category.upsert({
+
+    const category = await db.category.update({
       where: { id: categoryId },
-      update: { name },
-      create: { name },
+      data: {
+        ...body,
+        color: parseColor(body.color as string),
+      },
     });
     return NextResponse.json(category);
   } catch (error: any) {

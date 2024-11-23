@@ -1,4 +1,5 @@
 import { db } from "@/lib/db";
+import { parseColor } from "@/lib/utils";
 import { categorySchema } from "@/schema";
 import { NextResponse } from "next/server";
 
@@ -24,9 +25,11 @@ export async function POST(req: NextRequest) {
       return new NextResponse("Invalid request body", { status: 400 });
     }
 
-    const { name } = validatedBody.data;
+    const { name, color } = validatedBody.data;
 
-    const category = await db.category.create({ data: { name } });
+    const category = await db.category.create({
+      data: { name, color: parseColor(color as string) },
+    });
     return NextResponse.json(category);
   } catch (error: any) {
     console.error("[CATEGORY_ERROR]", error.message);

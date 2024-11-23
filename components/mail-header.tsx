@@ -34,11 +34,11 @@ const MailHeader = () => {
           className={buttonVariants({
             variant:
               category.name === initialCategory ? "default" : "secondary",
-            className: "cursor-pointer !rounded-full",
+            className: "cursor-pointer !rounded-full capitalize",
             size: "sm",
           })}
         >
-          {category.name}
+          {category.name.split("-").join(" ")}
         </div>
       ))}
     </div>
