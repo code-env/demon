@@ -108,6 +108,11 @@ const CreateCategory = () => {
                   />
                 ))}
               </div>
+              {form.formState.errors.color ? (
+                <p className="mt-1 text-sm text-red-500">
+                  {form.formState.errors.color.message}
+                </p>
+              ) : null}
             </div>
             <CreateButton
               isLoading={isPending}
